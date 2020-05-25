@@ -1176,7 +1176,7 @@
 /home/aine/script-env/centos-7-6-18-10-mariadb-dbeaver/md-dev.md	33	19	データベース作成
 /home/aine/script-env/centos-7-6-18-10-mariadb-dbeaver/md-dev.md	149	28	データファイル等の作成
 /home/aine/script-env/centos-7-6-18-10-mariadb-dbeaver/md-dev.md	213	19	データベース作成
-/home/aine/script-env/H11-docker-build-実行結果状況照会.sh	32	10	echo "未作成イメージは$TGT_BUILD_IMAGE_NON_DONE_CNT件でした"
+/home/aine/script-env/H11-docker-build-実行結果状況照会.sh	32	10	echo \"未作成イメージは$TGT_BUILD_IMAGE_NON_DONE_CNT件でした\"
 /home/aine/script-env/centos-7-6-18-10-egison-vim/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/ubuntu-18-04-c-cpp-codelite/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/ubuntu-18-04-c-cpp-codelite/md-dev.md	9	19	プロジェクト作成後
@@ -1212,11 +1212,11 @@
 /home/aine/script-env/centos-7-6-18-10-racket-drracket/md-man.md	6	21	# dockerコンテナ作成
 /home/aine/script-env/centos-7-6-18-10-racket-drracket/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/md-doc.md	9	21	# dockerイメージ作成
-/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	15	28	 echo "pdbを${PDB_CNT}個作成します。"
-/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	17	31	 [ $? -ne 0 ] && echo "pdbの作成に失敗しました。" && exit 1
-/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	18	44	 [ $? -eq 0 ] && echo "pdbを${PDB_CNT}個作成しました。"
-/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	39	46	 [ -z "${PDB_NUM}" ] && echo ユーザーを作成するPDBを指定してください。&& exit 1
-/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	40	31	 [ -z "${USR_CNT}" ] && echo 作成するユーザー数を指定してください。&& exit 1
+/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	15	28	 echo \"pdbを${PDB_CNT}個作成します。\"
+/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	17	31	 [ $? -ne 0 ] && echo \"pdbの作成に失敗しました。\" && exit 1
+/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	18	44	 [ $? -eq 0 ] && echo \"pdbを${PDB_CNT}個作成しました。\"
+/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	39	46	 [ -z \"${PDB_NUM}\" ] && echo ユーザーを作成するPDBを指定してください。&& exit 1
+/home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/init_db.sh	40	31	 [ -z \"${USR_CNT}\" ] && echo 作成するユーザー数を指定してください。&& exit 1
 /home/aine/script-env/centos-7-6-18-10-oracle-dbeaver/md-dev.md	17	4	pdb作成後、気持ち1分程待ってからリスナー登録するといいかんじ
 /home/aine/script-env/centos-7-6-18-10-groonga-vim/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/centos-7-6-18-10-mecab-java-vim/md-doc.md	9	21	# dockerイメージ作成
@@ -1309,7 +1309,7 @@
 /home/aine/script-env/centos-7-6-18-10-postgres-tclsh-vim/md-man.md	285	1	作成するファンクション
 /home/aine/script-env/centos-7-6-18-10-postgres-tclsh-vim/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/ubuntu-19-10-groonga-vim/md-doc.md	9	21	# dockerイメージ作成
-/home/aine/script-env/L01-ログから開始終了を抜き取る用.sh	15	197	find $HOME/$ENV_REPO -name "[0-9][0-9]-log" | while read tgt;do { echo $tgt;ls -l --time-style="+%Y-%m-%dT%H
+/home/aine/script-env/L01-ログから開始終了を抜き取る用.sh	15	197	find $HOME/$ENV_REPO -name \"[0-9][0-9]-log\" | while read tgt;do { echo $tgt;ls -l --time-style=\"+%Y-%m-%dT%H
 /home/aine/script-env/ubuntu-19-10-c-cpp-kdevelop/md-doc.md	9	21	# dockerイメージ作成
 /home/aine/script-env/ubuntu-19-10-c-cpp-kdevelop/md-dev.md	8	18	[fuseグループ作成方法](https
 /home/aine/script-env/ubuntu-18-04-aws_workspaces-vscode/md-doc.md	9	21	# dockerイメージ作成
@@ -1385,15 +1385,15 @@
 /home/aine/script-env/ubuntu-19-10-mysql-dbeaver/md-dev.md	91	10	| 1 | うんこ |
 /home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	101	14	scala> print うんこ
 /home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	105	14	 print うんこ
-/home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	108	15	scala> print("うんこ")
+/home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	108	15	scala> print(\"うんこ\")
 /home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	109	1	うんこ
-/home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	241	12	>>> print("うんこ")
+/home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	241	12	>>> print(\"うんこ\")
 /home/aine/script-env/ubuntu-16-04-apache_spark-dbeaver/md-dev.md	242	1	うんこ
 /home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	101	14	scala> print うんこ
 /home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	105	14	 print うんこ
-/home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	108	15	scala> print("うんこ")
+/home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	108	15	scala> print(\"うんこ\")
 /home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	109	1	うんこ
-/home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	241	12	>>> print("うんこ")
+/home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	241	12	>>> print(\"うんこ\")
 /home/aine/script-env/ubuntu-18-04-apache_spark-dbeaver/md-dev.md	242	1	うんこ
 /home/aine/script-env/ubuntu-18-04-nginx-jenkins-vim/md-man.md	156	16	<h1>Welcome to うんこ💞</h1>
 /home/aine/script-env/ubuntu-18-04-nginx-vim/md-man.md	156	16	<h1>Welcome to うんこ💞</h1>
