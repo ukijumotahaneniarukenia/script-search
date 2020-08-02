@@ -81,3 +81,25 @@ OUT
 ```
 3
 ```
+
+
+- クエリ文字列のパタン抽出
+
+IN
+
+```
+$ cat parameter-pattern-list.txt | grep -Po '&[-a-zA-Z0-9@:%._\+~#=/]+' | sort | uniq
+```
+
+OUT
+
+```
+&filters=MY_POSTS
+&filters=class_name:Article
+&filters=class_name:Comment
+&filters=class_name:PodcastEpisode
+&filters=class_name:User
+&sort_by=published_at
+&sort_direction=asc
+&sort_direction=desc
+```
