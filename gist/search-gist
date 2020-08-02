@@ -2,15 +2,16 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-DEFAULT_SEARCH_ENGINE_PAGE=https://docs.docker.jp/search.html
+DEFAULT_SEARCH_ENGINE_PAGE=https://gist.github.com/search
 
-DEFAULT_QUERY_PARAMETER="q=@&check_keywords=yes&area=default"
+#TODOバリエーション増やすかどうか めんど よくぐぐる言語別にコマンドファイルを切ったほうがらく
+DEFAULT_QUERY_PARAMETER="q=@&ref=opensearch&s=stars&o=desc"
 
 usage(){
 cat <<EOS
 Usage:
-   IN: echo docker compose | $0
-  OUT: https://docs.docker.jp/search.html?q=docker%20compose&check_keywords=yes&area=default
+   IN: echo Dockerfile docker-compose | $0
+  OUT: $DEFAULT_SEARCH_ENGINE_PAGE?q=Dockerfile%20docker-compose&ref=opensearch
 EOS
 
 exit 0
@@ -33,7 +34,7 @@ main(){
   [ -z "$n" ] && usage
 
   if [[ $(is_single_row "$n") -eq 0 ]];then
-    echo "$n" | xargs -I@ $DEFAULT_WEB_BROWSER "$DEFAULT_SEARCH_ENGINE_PAGE?$DEFAULT_QUERY_PARAMETER"
+    echo "$n" | xargs -I@ $DEFAULT_WEB_BROWSER "$DEFAULT_SEARCH_ENGINE_PAGE?$DEFAULT_QUERY_PARAMETER" 1>/dev/null 2>&1
   else
     usage
   fi
