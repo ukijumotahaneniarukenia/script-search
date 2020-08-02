@@ -103,3 +103,25 @@ OUT
 &sort_direction=asc
 &sort_direction=desc
 ```
+
+
+- オプション引数の作成
+
+IN
+
+```
+$ cat P01-parameter-pattern-list.txt | tr -d '&' | tr '[=_:]' '-' | sed 's/^/--/'
+```
+
+OUT
+
+```
+--filters-MY-POSTS
+--filters-class-name-Article
+--filters-class-name-Comment
+--filters-class-name-PodcastEpisode
+--filters-class-name-User
+--sort-by-published-at
+--sort-direction-asc
+--sort-direction-desc
+```
