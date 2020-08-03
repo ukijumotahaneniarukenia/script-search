@@ -370,3 +370,12 @@ echo 'SEARCH_CONDITION_KEY=search' >> /home/aine/script-search/org_wikipedia_ja/
 echo 'SEARCH_CONDITION_KEY=search_query' >> /home/aine/script-search/com_youtube_www/T02-placeholder-pattern-list.txt
 echo 'SEARCH_CONDITION_KEY=text' >> /home/aine/script-search/com_yandex/T02-placeholder-pattern-list.txt
 ```
+
+パス式管理のURL一覧
+
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | while read dir;do grep -q -P $dir M02-url-norm-list.txt; [[ 1 -eq $? ]] && echo $dir|grep -P '[a-zA-Z]+(?:[_\-a-zA-Z])+'; done
+```

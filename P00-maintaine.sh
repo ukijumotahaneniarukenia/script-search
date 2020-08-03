@@ -31,6 +31,9 @@ cat M01-url-list.txt | grep -P '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby 
 #パス式パタンリストの作成
 cat M01-url-list.txt | grep -vP '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby -F"\." -anle 'puts $F.reverse.join("_")' >L02-parameter-pattern-is-path-expresseion-list.txt
 
+#未使用ディレクトリの削除(正規化URLに登録されていないかつディレクトリ名に一つもアンダースコアが含まれていない場合)
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | while read dir;do grep -q -P $dir M02-url-norm-list.txt; [[ 1 -eq $? ]] && echo $dir|grep -v '_'; done | xargs rm -rf
+
 #配備 Usageファイルは除く
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0[1-5]* @/|bash
 
@@ -54,6 +57,8 @@ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' 
 #クエリの正規化
 cat M01-url-list.txt | ruby -F"\?" -anle '$F[1].split(/\&/).map{|x|p $_.gsub(/.*\/\//,"").gsub(/\/.*/,"").split(/\./).reverse.join("_"),$F[0],x}'|xargs -n3>M02-url-norm-list.txt
 
+#パス式の正規化
+#TODO
 
 #検索エンジンURLの登録
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | awk -v tgt=T05-search-engine-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27"$2"\x27 > "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash

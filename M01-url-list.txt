@@ -86,16 +86,12 @@ https://serverfault.com/search?q=@
 https://meta.stackexchange.com/search?q=@
 https://packages.ubuntu.com/search?keywords=@&searchon=names&suite=eoan&section=all
 https://dev.getsol.us/search/query/@/#R
-https://forums.gentoo.org/search.php?mode=results&sid=a9f3ddb01f1b19dac1839ffd0dc45150
-https://www.effectiveperlprogramming.com/?s=glob
+https://www.effectiveperlprogramming.com/?s=@
 https://egison.readthedocs.io/en/latest/search.html?q=@&check_keywords=yes&area=default
 https://www.kaggle.com/search?q=@
-https://www.typescriptlang.org/docs/handbook/declaration-files/deep-dive.html#definition-file-theory-a-deep-dive
-https://www.algolia.com/search/?query=@&page=1&indices%5BPROD_algolia_com_site%5D%5Bconfigure%5D%5BclickAnalytics%5D=true&indices%5BPROD_algolia_com_site%5D%5Bconfigure%5D%5BhitsPerPage%5D=6&indices%5BPROD_algolia_com_site%5D%5Bconfigure%5D%5BattributesToSnippet%5D%5B0%5D=metaDescription%3A27&indices%5BPROD_algolia_com_site%5D%5Bpage%5D=1&indices%5BPROD_algolia_com_resources%5D%5Bconfigure%5D%5BclickAnalytics%5D=true&indices%5BPROD_algolia_com_resources%5D%5Bconfigure%5D%5BhitsPerPage%5D=10&indices%5BPROD_algolia_com_resources%5D%5Bconfigure%5D%5BsnippetEllipsisText%5D=%E2%80%A6&indices%5BPROD_algolia_com_resources%5D%5Bpage%5D=1&indices%5BPROD_algolia_blog%5D%5Bconfigure%5D%5BclickAnalytics%5D=true&indices%5BPROD_algolia_blog%5D%5Bconfigure%5D%5BhitsPerPage%5D=4&indices%5BPROD_algolia_blog%5D%5Bconfigure%5D%5BattributesToSnippet%5D%5B0%5D=content%3A20&indices%5BPROD_algolia_blog%5D%5Bconfigure%5D%5BsnippetEllipsisText%5D=%E2%80%A6&indices%5BPROD_algolia_blog%5D%5Bpage%5D=1&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BclickAnalytics%5D=true&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BhitsPerPage%5D=10&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BattributesToSnippet%5D%5B0%5D=content%3A27&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BattributesToHighlight%5D%5B0%5D=h1&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BattributesToHighlight%5D%5B1%5D=variation.flavor&indices%5BPROD_algolia_com_doc%5D%5Bconfigure%5D%5BsnippetEllipsisText%5D=%E2%80%A6&indices%5BPROD_algolia_com_doc%5D%5Bpage%5D=1
 https://tatsu-zine.com/sitesearch?q=@
 https://codepen.io/search/pens?q=@
 https://www.google.com/search?sitesearch=https%3A%2F%2Fwww.freedesktop.org%2Fwiki%2F&q=@
 https://wiki.ubuntu.com/systemd?action=fullsearch&context=180&value=@&titlesearch=%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB
 https://wiki.debian.org/ja/FrontPage?action=fullsearch&context=180&value=@&fullsearch=%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88
 https://wiki.debian.org/ja/FrontPage?action=fullsearch&context=180&value=@&titlesearch=%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB
-http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=@&fenlei=256&rsv_pq=9aae75c70002a066&rsv_t=279aTIU1G8XxYoGcyNue%2FfFw8BYYD6BV0thyDVxK4LIdgIBCA0LESTTHNYs&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=7&rsv_sug1=2&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&inputT=3376&rsv_sug4=3376

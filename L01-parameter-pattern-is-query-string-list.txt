@@ -14,8 +14,6 @@ jp_docker_docs
 com_duckduckgo
 io_readthedocs_egison
 org_manjaro_forum
-org_gentoo_forums
-com_genzouw
 com_github_gist
 com_github
 org_godoc
@@ -51,10 +49,8 @@ org_haskell_wiki
 org_manjaro_wiki
 org_tcl-lang_wiki
 com_ubuntu_wiki
-com_algolia_www
 jp_co_amazon_www
 org_archlinux_www
-com_baidu_www
 com_bing_www
 net_die_www
 com_ebay_www
