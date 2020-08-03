@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="TOBE_REPLACE_SEARCH_ENGINE_PAGE"
+SEARCH_ENGINE_PAGE="https://pypi.org/search/"
 
 INCLUDE_LIST=$HOME/script-search/L*
 
