@@ -15,6 +15,7 @@ com_duckduckgo
 io_readthedocs_egison
 org_manjaro_forum
 org_gentoo_forums
+com_genzouw
 com_github_gist
 com_github
 org_godoc

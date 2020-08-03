@@ -99,3 +99,4 @@ https://wiki.ubuntu.com/systemd?action=fullsearch&context=180&value=@&titlesearc
 https://wiki.debian.org/ja/FrontPage?action=fullsearch&context=180&value=@&fullsearch=%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88
 https://wiki.debian.org/ja/FrontPage?action=fullsearch&context=180&value=@&titlesearch=%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB
 http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=@&fenlei=256&rsv_pq=9aae75c70002a066&rsv_t=279aTIU1G8XxYoGcyNue%2FfFw8BYYD6BV0thyDVxK4LIdgIBCA0LESTTHNYs&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=7&rsv_sug1=2&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&inputT=3376&rsv_sug4=3376
+https://genzouw.com/page/1/?s=@

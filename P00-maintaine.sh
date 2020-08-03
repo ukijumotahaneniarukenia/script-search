@@ -31,9 +31,21 @@ cat M01-url-list.txt | grep -P '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby 
 #パス式パタンリストの作成
 cat M01-url-list.txt | grep -vP '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby -F"\." -anle 'puts $F.reverse.join("_")' >L02-parameter-pattern-is-path-expresseion-list.txt
 
+#配備 Usageファイルは除く
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0[1-5]* @/|bash
 
-#配備
-find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0* @/|bash
+#Usageファイルの作成
+while read dir;do
+
+  if [[ -f $dir/T06-usage-pattern-list.txt ]];then
+    #あれば作成しない
+    :
+  else
+    #なければ作成する
+    cp T06* $dir/T06*
+  fi
+
+done < <(find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git')
 
 #実行コマンドのリネーム
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | xargs -I@ bash -c 'echo mv $HOME/script-search/@/T01-search-template $HOME/script-search/@/search-$(tr "_" "-"<<<@);'|bash

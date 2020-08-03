@@ -4,19 +4,25 @@ DEFAULT_WEB_BROWSER=brave-browser
 
 SEARCH_ENGINE_PAGE="https://developer.android.com/s/results"
 
+ZERO_PAD_LEN="%03d"
+
 INCLUDE_LIST=$HOME/script-search/L*
 
 EXCLUDE_LIST=$HOME/script-search/L00*
 
 SITE_NAME=$(echo ${0##*/}| ruby -F- -anle 'puts $F[1..$F.size-1].join("_")')
 
-OPTION_LIST=$(cat $HOME/script-search/$SITE_NAME/T03*|sed 's/^/          /')
+OPTION_FILE_NAME=$HOME/script-search/$SITE_NAME/T03*
 
-USAGE_LIST=$(cat $HOME/script-search/$SITE_NAME/T06*|sed 's/^/          /')
+OPTION_LIST=$(cat $OPTION_FILE_NAME|sed 's/^/          /')
 
-PLACE_HOLDER_LIST=$HOME/script-search/$SITE_NAME/T02*
+USAGE_FILE_NAME=$HOME/script-search/$SITE_NAME/T06*
 
-PARAMETER_PATTERN_LIST=$HOME/script-search/$SITE_NAME/T04*
+USAGE_LIST=$(cat $USAGE_FILE_NAME|sed 's/^/          /')
+
+PLACE_HOLDER_FILE_NAME=$HOME/script-search/$SITE_NAME/T02*
+
+PARAMETER_PATTERN_FILE_NAME=$HOME/script-search/$SITE_NAME/T04*
 
 SEARCH_PATTERN_FILE=$(ls $INCLUDE_LIST|grep -v $EXCLUDE_LIST | while read list;do cat $list | grep -P "$SITE_NAME"; [[ 0 -eq $? ]] && echo $list ;done)
 
@@ -41,9 +47,11 @@ $OPTION_LIST
 INNER
 )
 
-      IN: echo NLP | $0
+     CMD: $0 search NLP
 
-     OUT:
+     CMD: $0 add https://duckduckgo.com/?q=Sudachi https://duckduckgo.com/?q=NLP
+
+     CMD: $0 remove {1..3} 9 {7..8}
 
 $(cat <<INNER
 $USAGE_LIST
@@ -65,43 +73,68 @@ is_single_row(){
   [ $CNT -gt 1 ] && echo 1
 }
 
-main(){
-  n="$(cat -)";
+add(){
 
-  [ -z "$n" ] && usage
+  URL=( "$@" );
 
-  OPTION_ARGS=( $n )
+  INDEX_NO=
+  for e in ${URL[@]};do
 
-  OPTION_ARGS_PATTERN="--"
+    LAST_INDEX_NO=$(grep -Po '^[0-9]+' $USAGE_FILE_NAME|tail -n1|bc)
 
-  OPTION_ARGS_REGEXP_PATTERN="^$OPTION_ARGS_PATTERN"
+    if [[ -z $LAST_INDEX_NO ]];then
+      INDEX_NO=$(printf $ZERO_PAD_LEN 1)
+    else
+      INDEX_NO=$(printf $ZERO_PAD_LEN $(( $LAST_INDEX_NO + 1)))
+    fi
 
-  OPTION_CNT=${#OPTION_ARGS[@]}
+    echo $INDEX_NO "$e" >> $USAGE_FILE_NAME
 
-  if [[ $(is_single_row "$n") -ne 0 ]];then
-    #単一行でない場合
-    usage
-  fi
+  done
 
-  BUILD_QUERY_PARAMETER=
-  BUILD_SEARCH_PARAMETER=
-  BUILD_OPTION_PARAMETER=
+  exit 0
+}
 
-  SEARCH_CONDITION_JOINER=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_JOINER| sed 's/.*=//')
-  SEARCH_CONDITION_JOINER_REGEXP_PATTERN="^$SEARCH_CONDITION_JOINER"
-  SEARCH_CONDITION_KEY=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_KEY| sed 's/.*=//')
-  SEARCH_CONDITION_KEY_REGEXP_PATTERN="$SEARCH_CONDITION_KEY="
+remove(){
+
+  NO=( "$@" );
+
+  for i in ${NO[@]};do
+
+    sed -i /$(printf $ZERO_PAD_LEN $i)/d $USAGE_FILE_NAME
+
+  done
+
+  exit 0
+}
+
+search(){
+
+  local OPTION_ARGS=( "$@" )
+
+  local OPTION_CNT=${#OPTION_ARGS[@]}
+
+  local BUILD_QUERY_PARAMETER=
+  local BUILD_SEARCH_PARAMETER=
+  local BUILD_OPTION_PARAMETER=
+
+  local SEARCH_CONDITION_JOINER=$(cat $PLACE_HOLDER_FILE_NAME | grep SEARCH_CONDITION_JOINER| sed 's/.*=//')
+  local SEARCH_CONDITION_JOINER_REGEXP_PATTERN="^$SEARCH_CONDITION_JOINER"
+  local SEARCH_CONDITION_KEY=$(cat $PLACE_HOLDER_FILE_NAME | grep SEARCH_CONDITION_KEY| sed 's/.*=//')
+  local SEARCH_CONDITION_KEY_REGEXP_PATTERN="$SEARCH_CONDITION_KEY="
 
   for (( i=0;i<$OPTION_CNT;i++ ));do
 
     if [[ ${OPTION_ARGS[@]:$i:1} =~ $OPTION_ARGS_REGEXP_PATTERN ]];then
 
-      LIKE_PATTERN=$(echo ${OPTION_ARGS[@]:$i:1} |ruby -F- -anle 'puts $F.filter{|x|x.size!=0}.join(".")')
-      OPTION_PARAMETER=$(cat $PARAMETER_PATTERN_LIST | grep -P $LIKE_PATTERN)
+      local LIKE_PATTERN=$(echo ${OPTION_ARGS[@]:$i:1} |ruby -F- -anle 'puts $F.filter{|x|x.size!=0}.join(".")')
+      local OPTION_PARAMETER=$(cat $PARAMETER_PATTERN_FILE_NAME | grep -P $LIKE_PATTERN)
       BUILD_OPTION_PARAMETER=$BUILD_OPTION_PARAMETER$OPTION_PARAMETER
 
     else
+
       BUILD_SEARCH_PARAMETER=$BUILD_SEARCH_PARAMETER$SEARCH_CONDITION_JOINER${OPTION_ARGS[@]:$i:1}
+
     fi
   done
 
@@ -109,11 +142,54 @@ main(){
 
   echo
 
-  echo "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
+  echo $DEFAULT_WEB_BROWSER "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
 
   echo
 
   $DEFAULT_WEB_BROWSER "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
+
+  add "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
+
+}
+
+main(){
+  n=$(cat -);
+
+  [ -z "$n" ] && usage
+
+  local OPTION_ARGS=( $n )
+
+  local OPTION_ARGS_PATTERN="--"
+
+  local OPTION_ARGS_REGEXP_PATTERN="^$OPTION_ARGS_PATTERN"
+
+  if [[ $(is_single_row "$n") -ne 0 ]];then
+    #単一行でない場合
+    usage
+  fi
+
+  local OPTION_CNT=${#OPTION_ARGS[@]}
+
+  for subcmd in ${OPTION_ARGS[@]};do
+    case $subcmd in
+      *)
+        if [[ $subcmd =~ "remove"  ]];then
+          remove ${OPTION_ARGS[@]:1:$OPTION_CNT}
+        fi
+
+        if [[ $subcmd =~ "add"  ]];then
+          add ${OPTION_ARGS[@]:1:$OPTION_CNT}
+        fi
+
+        if [[ $subcmd =~ "search"  ]];then
+          search ${OPTION_ARGS[@]:1:$OPTION_CNT}
+        fi
+
+        usage
+
+    esac
+  done
+
 }
 
 [ -p /dev/stdin ] && cat - | main
