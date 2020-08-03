@@ -119,40 +119,40 @@ com_yandex	https://yandex.com/search/??text=@
 - IN
 
 ```
-$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T01-search-template @/T01-search-template
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0* @/
 ```
 
 - OUT
 
 ```
-cp T01-search-template /home/aine/script-search/com_github/T01-search-template
-cp T01-search-template /home/aine/script-search/org_pypi/T01-search-template
-cp T01-search-template /home/aine/script-search/com_android_developer/T01-search-template
-cp T01-search-template /home/aine/script-search/engineering_medium/T01-search-template
-cp T01-search-template /home/aine/script-search/com_youtube_www/T01-search-template
-cp T01-search-template /home/aine/script-search/com_pinterest_www/T01-search-template
-cp T01-search-template /home/aine/script-search/org_oeis/T01-search-template
-cp T01-search-template /home/aine/script-search/org_golang/T01-search-template
-cp T01-search-template /home/aine/script-search/jp_docker_docs/T01-search-template
-cp T01-search-template /home/aine/script-search/jp_co_google_www/T01-search-template
-cp T01-search-template /home/aine/script-search/to_dev/T01-search-template
-cp T01-search-template /home/aine/script-search/edu_mit_www/T01-search-template
-cp T01-search-template /home/aine/script-search/com_qiita/T01-search-template
-cp T01-search-template /home/aine/script-search/com_uptodown_jp/T01-search-template
-cp T01-search-template /home/aine/script-search/org_godoc/T01-search-template
-cp T01-search-template /home/aine/script-search/com_towardsdatascience/T01-search-template
-cp T01-search-template /home/aine/script-search/net_die_www/T01-search-template
-cp T01-search-template /home/aine/script-search/com_netflixtechblog/T01-search-template
-cp T01-search-template /home/aine/script-search/com_google_translate/T01-search-template
-cp T01-search-template /home/aine/script-search/com_github_gist/T01-search-template
-cp T01-search-template /home/aine/script-search/org_cocoapods/T01-search-template
-cp T01-search-template /home/aine/script-search/org_wikipedia_ja/T01-search-template
-cp T01-search-template /home/aine/script-search/com_yandex/T01-search-template
-cp T01-search-template /home/aine/script-search/com_rstudio_community/T01-search-template
-cp T01-search-template /home/aine/script-search/org_scala-lang_index/T01-search-template
-cp T01-search-template /home/aine/script-search/org_bitbucket/T01-search-template
-cp T01-search-template /home/aine/script-search/com_vagrantup_app/T01-search-template
-cp T01-search-template /home/aine/script-search/com_medium_blog/T01-search-template
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_github/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_pypi/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_android_developer/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/engineering_medium/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_youtube_www/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_pinterest_www/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_oeis/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_golang/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/jp_docker_docs/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/jp_co_google_www/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/to_dev/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/edu_mit_www/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_qiita/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_uptodown_jp/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_godoc/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_towardsdatascience/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/net_die_www/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_netflixtechblog/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_google_translate/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_github_gist/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_cocoapods/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_wikipedia_ja/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_yandex/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_rstudio_community/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_scala-lang_index/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/org_bitbucket/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_vagrantup_app/
+cp T01-search-template T02-placeholder-pattern-list.txt T03-option-arguments-pattern-list.txt T04-parameter-pattern-list.txt /home/aine/script-search/com_medium_blog/
 ```
 
 

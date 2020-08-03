@@ -8,7 +8,7 @@ INCLUDE_LIST=$HOME/script-search/L*
 
 EXCLUDE_LIST=$HOME/script-search/L00*
 
-SITE_NAME=$(echo ${0##./} | ruby -F- -anle 'puts $F[1]')
+SITE_NAME=$(basename $(pwd))
 
 OPTION_LIST=$(cat $HOME/script-search/$SITE_NAME/T03*|sed 's/^/          /')
 
@@ -99,6 +99,8 @@ main(){
   done
 
   BUILD_QUERY_PARAMETER=$(echo $BUILD_SEARCH_PARAMETER | sed "s/$SEARCH_CONDITION_JOINER_REGEXP_PATTERN/$SEARCH_CONDITION_KEY_REGEXP_PATTERN/")$BUILD_OPTION_PARAMETER
+
+  echo
 
   echo "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
 
