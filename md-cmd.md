@@ -253,3 +253,41 @@ com_youtube_www https://www.youtube.com/results search_query=@
 com_youtube_www https://www.youtube.com/results page={startPage
 com_yandex https://yandex.com/search/ text=@
 ```
+
+
+検索エンジンURLの登録
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | awk -v tgt=T05-search-engine-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27"$2"\x27 > "home"/"root"/"dir"/"tgt}'; done|sort |uniq
+```
+
+- OUT
+
+```
+echo 'http://golang.org/search' > /home/aine/script-search/org_golang/T05-search-engine-pattern-list.txt
+echo 'http://oeis.org/search' > /home/aine/script-search/org_oeis/T05-search-engine-pattern-list.txt
+echo 'http://www.mit.edu/search/' > /home/aine/script-search/edu_mit_www/T05-search-engine-pattern-list.txt
+echo 'http://www.pinterest.com/search/pins/' > /home/aine/script-search/com_pinterest_www/T05-search-engine-pattern-list.txt
+echo 'https://app.vagrantup.com/boxes/search' > /home/aine/script-search/com_vagrantup_app/T05-search-engine-pattern-list.txt
+echo 'https://bitbucket.org/repo/all' > /home/aine/script-search/org_bitbucket/T05-search-engine-pattern-list.txt
+echo 'https://blog.medium.com/search' > /home/aine/script-search/com_medium_blog/T05-search-engine-pattern-list.txt
+echo 'https://cocoapods.org/' > /home/aine/script-search/org_cocoapods/T05-search-engine-pattern-list.txt
+echo 'https://community.rstudio.com/search' > /home/aine/script-search/com_rstudio_community/T05-search-engine-pattern-list.txt
+echo 'https://developer.android.com/s/results' > /home/aine/script-search/com_android_developer/T05-search-engine-pattern-list.txt
+echo 'https://docs.docker.jp/search.html' > /home/aine/script-search/jp_docker_docs/T05-search-engine-pattern-list.txt
+echo 'https://gist.github.com/search' > /home/aine/script-search/com_github_gist/T05-search-engine-pattern-list.txt
+echo 'https://github.com/search' > /home/aine/script-search/com_github/T05-search-engine-pattern-list.txt
+echo 'https://godoc.org/' > /home/aine/script-search/org_godoc/T05-search-engine-pattern-list.txt
+echo 'https://ja.wikipedia.org/w/index.php' > /home/aine/script-search/org_wikipedia_ja/T05-search-engine-pattern-list.txt
+echo 'https://medium.engineering/search' > /home/aine/script-search/engineering_medium/T05-search-engine-pattern-list.txt
+echo 'https://netflixtechblog.com/search' > /home/aine/script-search/com_netflixtechblog/T05-search-engine-pattern-list.txt
+echo 'https://pypi.org/search/' > /home/aine/script-search/org_pypi/T05-search-engine-pattern-list.txt
+echo 'https://qiita.com/search' > /home/aine/script-search/com_qiita/T05-search-engine-pattern-list.txt
+echo 'https://towardsdatascience.com/search' > /home/aine/script-search/com_towardsdatascience/T05-search-engine-pattern-list.txt
+echo 'https://translate.google.com/' > /home/aine/script-search/com_google_translate/T05-search-engine-pattern-list.txt
+echo 'https://www.die.net/search/' > /home/aine/script-search/net_die_www/T05-search-engine-pattern-list.txt
+echo 'https://www.youtube.com/results' > /home/aine/script-search/com_youtube_www/T05-search-engine-pattern-list.txt
+echo 'https://yandex.com/search/' > /home/aine/script-search/com_yandex/T05-search-engine-pattern-list.txt
+```
