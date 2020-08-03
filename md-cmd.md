@@ -376,3 +376,39 @@ $ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;
 ```
 
 ```
+
+
+検索キー名の登録
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | grep =@ | awk -v tgt=T02-placeholder-pattern-list.txt -v key=SEARCH_CONDITION_KEY -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{gsub("=.*","",$3);print "echo \x27"key"="$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq
+```
+
+- OUT
+
+```
+echo 'SEARCH_CONDITION_KEY=name' >> /home/aine/script-search/org_bitbucket/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_android_developer/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_github/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_github_gist/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_medium_blog/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_netflixtechblog/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_pinterest_www/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_qiita/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_rstudio_community/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/com_towardsdatascience/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/edu_mit_www/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/engineering_medium/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/jp_docker_docs/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/net_die_www/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/org_cocoapods/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/org_godoc/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/org_golang/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/org_oeis/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=q' >> /home/aine/script-search/org_pypi/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=search' >> /home/aine/script-search/org_wikipedia_ja/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=search_query' >> /home/aine/script-search/com_youtube_www/T02-placeholder-pattern-list.txt
+echo 'SEARCH_CONDITION_KEY=text' >> /home/aine/script-search/com_yandex/T02-placeholder-pattern-list.txt
+```
