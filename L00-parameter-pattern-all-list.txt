@@ -28,3 +28,6 @@ $HOME/script-search/wikipedia_ja/search-wikipedia_ja
 $HOME/script-search/yandex/search-yandex
 $HOME/script-search/youtube/search-youtube
 $HOME/script-search/youtube_music/search-youtube_music
+$HOME/script-search/uptodown_ja_android/search-uptodown_ja_android
+$HOME/script-search/uptodown_ja_mac/search-uptodown_ja_mac
+$HOME/script-search/uptodown_ja_windows/search-uptodown_ja_windows

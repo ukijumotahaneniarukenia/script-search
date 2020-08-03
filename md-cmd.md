@@ -3,7 +3,7 @@
 IN
 
 ```
-$ grep DEF -r . | grep echo | grep -P '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;"
+$ grep DEF -r . | grep echo | grep -P '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;" | grep -vP 'md-cmd.md' | sort | uniq >L01-parameter-pattern-is-query-string-list.txt
 ```
 
 OUT
@@ -41,25 +41,12 @@ $HOME/script-search/gist/search-gist-systemd_nspawn
 $HOME/script-search/dev_to/search-dev_to
 ```
 
-IN
-
-```
-$ grep DEF -r . | grep echo | grep -P '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;" | grep -vP 'md-cmd.md' | wc -l
-```
-
-OUT
-
-```
-30
-```
-
-
 - URLパタンの抽出
 
 IN
 
 ```
-$ grep DEF -r . | grep echo | grep -vP '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;" | grep -vP 'md-cmd.md'
+$ grep DEF -r . | grep echo | grep -vP '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;" | grep -vP 'md-cmd.md' | sort | uniq >L02-parameter-pattern-is-path-expresseion-list.txt
 ```
 
 OUT
@@ -70,25 +57,26 @@ $HOME/script-search/uptodown_ja_mac/search-uptodown_ja_mac
 $HOME/script-search/uptodown_ja_windows/search-uptodown_ja_windows
 ```
 
+- 検索全量
+
 IN
 
 ```
-$ grep DEF -r . | grep echo | grep -vP '\?\$' | cut -d: -f1 | xargs -n1 | sed -r "s;\.;\$HOME/script-search;" | grep -vP 'md-cmd.md' | wc -l
+$ ls L0* | grep -v 00 | xargs cat >L00-parameter-pattern-all-list.txt
 ```
 
 OUT
 
 ```
-3
-```
 
+```
 
 - クエリ文字列のパタン抽出
 
 IN
 
 ```
-$ cat parameter-pattern-list.txt | grep -Po '&[-a-zA-Z0-9@:%._\+~#=/]+' | sort | uniq
+$ cat parameter-pattern-list.txt | grep -Po '&[-a-zA-Z0-9@:%._\+~#=/]+' | sort | uniq >P01-parameter-pattern-list.txt
 ```
 
 OUT
@@ -104,13 +92,12 @@ OUT
 &sort_direction=desc
 ```
 
-
 - オプション引数の作成
 
 IN
 
 ```
-$ cat P01-parameter-pattern-list.txt | tr -d '&' | tr '[=_:]' '-' | sed 's/^/--/'
+$ cat P01-parameter-pattern-list.txt | tr -d '&' | tr '[=_:]' '-' | sed 's/^/--/' >O01-option-arguments-pattern-list.txt
 ```
 
 OUT
