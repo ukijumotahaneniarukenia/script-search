@@ -197,3 +197,59 @@ mv /home/aine/script-search/org_bitbucket/T01-search-template /home/aine/script-
 mv /home/aine/script-search/com_vagrantup_app/T01-search-template /home/aine/script-search/com_vagrantup_app/search-com-vagrantup-app
 mv /home/aine/script-search/com_medium_blog/T01-search-template /home/aine/script-search/com_medium_blog/search-com-medium-blog
 ```
+
+
+
+クエリの正規化
+
+- IN
+
+```
+$ cat M01-url-list.txt | ruby -F"\?" -anle '$F[1].split(/\&/).map{|x|p $_.gsub(/.*\/\//,"").gsub(/\/.*/,"").split(/\./).reverse.join("_"),$F[0],x}'|xargs -n3>M02-url-norm-list.txt
+```
+
+- OUT
+
+```
+org_golang http://golang.org/search q=@
+org_oeis http://oeis.org/search q=@
+org_oeis http://oeis.org/search sort=rel
+edu_mit_www http://www.mit.edu/search/ q=@
+com_pinterest_www http://www.pinterest.com/search/pins/ q=@
+com_pinterest_www http://www.pinterest.com/search/pins/ rs=direct_navigation
+com_vagrantup_app https://app.vagrantup.com/boxes/search utf8=%E2%9C%93
+com_vagrantup_app https://app.vagrantup.com/boxes/search sort=downloads
+com_vagrantup_app https://app.vagrantup.com/boxes/search provider=libvirt
+org_bitbucket https://bitbucket.org/repo/all name=@
+com_medium_blog https://blog.medium.com/search q=@
+com_medium_blog https://blog.medium.com/search ref=opensearch
+org_cocoapods https://cocoapods.org/ q=@
+com_rstudio_community https://community.rstudio.com/search q=@
+com_android_developer https://developer.android.com/s/results q=@
+jp_docker_docs https://docs.docker.jp/search.html q=@
+jp_docker_docs https://docs.docker.jp/search.html check_keywords=yes
+jp_docker_docs https://docs.docker.jp/search.html area=default
+com_github_gist https://gist.github.com/search q=@
+com_github_gist https://gist.github.com/search ref=opensearch
+com_github_gist https://gist.github.com/search s=stars
+com_github_gist https://gist.github.com/search o=desc
+com_github https://github.com/search q=@
+com_github https://github.com/search ref=opensearch
+org_godoc https://godoc.org/ q=@
+org_wikipedia_ja https://ja.wikipedia.org/w/index.php search=@
+org_wikipedia_ja https://ja.wikipedia.org/w/index.php fulltext=1
+engineering_medium https://medium.engineering/search q=@
+engineering_medium https://medium.engineering/search ref=opensearch
+com_netflixtechblog https://netflixtechblog.com/search q=@
+com_netflixtechblog https://netflixtechblog.com/search ref=opensearch
+org_pypi https://pypi.org/search/ q=@
+org_pypi https://pypi.org/search/ o=-zscore
+com_qiita https://qiita.com/search q=@
+com_towardsdatascience https://towardsdatascience.com/search q=@
+com_towardsdatascience https://towardsdatascience.com/search ref=opensearch
+com_google_translate https://translate.google.com/ source=osdd#auto|auto|@
+net_die_www https://www.die.net/search/ q=@
+com_youtube_www https://www.youtube.com/results search_query=@
+com_youtube_www https://www.youtube.com/results page={startPage
+com_yandex https://yandex.com/search/ text=@
+```
