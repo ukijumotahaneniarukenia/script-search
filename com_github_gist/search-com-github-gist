@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="https://gist.github.com/search"
+SEARCH_ENGINE_PAGE="TOBE_REPLACE_SEARCH_ENGINE_PAGE"
 
 INCLUDE_LIST=$HOME/script-search/L*
 
@@ -11,6 +11,8 @@ EXCLUDE_LIST=$HOME/script-search/L00*
 SITE_NAME=$(basename $(pwd))
 
 OPTION_LIST=$(cat $HOME/script-search/$SITE_NAME/T03*|sed 's/^/          /')
+
+USAGE_LIST=$(cat $HOME/script-search/$SITE_NAME/T06*|sed 's/^/          /')
 
 PLACE_HOLDER_LIST=$HOME/script-search/$SITE_NAME/T02*
 
@@ -39,9 +41,14 @@ $OPTION_LIST
 INNER
 )
 
-      IN: echo systemd-nspawn うんこ --filters-MY-POSTS --filters-class-name-Article --sort-direction-asc | $0
+      IN: echo NLP | $0
 
-     OUT: https://dev.to/search?q=systemd-nspawn%20うんこ&filters=MY_POSTS&filters=class_name:Article&sort_direction=asc
+     OUT:
+
+$(cat <<INNER
+$USAGE_LIST
+INNER
+)
 EOS
 
 exit 0
