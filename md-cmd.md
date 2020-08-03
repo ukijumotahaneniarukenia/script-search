@@ -306,3 +306,73 @@ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | while read dir
 ```
 
 ```
+
+
+クエリパラメータの登録
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | awk -v tgt=T04-parameter-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27&"$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq
+```
+
+- OUT
+
+```
+e=$HOME -v root=script-search 'dir==$1{print "echo \x27&"$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq
+echo '&area=default' >> /home/aine/script-search/jp_docker_docs/T04-parameter-pattern-list.txt
+echo '&check_keywords=yes' >> /home/aine/script-search/jp_docker_docs/T04-parameter-pattern-list.txt
+echo '&fulltext=1' >> /home/aine/script-search/org_wikipedia_ja/T04-parameter-pattern-list.txt
+echo '&name=@' >> /home/aine/script-search/org_bitbucket/T04-parameter-pattern-list.txt
+echo '&o=-zscore' >> /home/aine/script-search/org_pypi/T04-parameter-pattern-list.txt
+echo '&o=desc' >> /home/aine/script-search/com_github_gist/T04-parameter-pattern-list.txt
+echo '&provider=libvirt' >> /home/aine/script-search/com_vagrantup_app/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_android_developer/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_github/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_github_gist/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_medium_blog/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_netflixtechblog/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_pinterest_www/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_qiita/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_rstudio_community/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/com_towardsdatascience/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/edu_mit_www/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/engineering_medium/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/jp_docker_docs/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/net_die_www/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/org_cocoapods/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/org_godoc/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/org_golang/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/org_oeis/T04-parameter-pattern-list.txt
+echo '&q=@' >> /home/aine/script-search/org_pypi/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/com_github/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/com_github_gist/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/com_medium_blog/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/com_netflixtechblog/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/com_towardsdatascience/T04-parameter-pattern-list.txt
+echo '&ref=opensearch' >> /home/aine/script-search/engineering_medium/T04-parameter-pattern-list.txt
+echo '&rs=direct_navigation' >> /home/aine/script-search/com_pinterest_www/T04-parameter-pattern-list.txt
+echo '&s=stars' >> /home/aine/script-search/com_github_gist/T04-parameter-pattern-list.txt
+echo '&search=@' >> /home/aine/script-search/org_wikipedia_ja/T04-parameter-pattern-list.txt
+echo '&search_query=@' >> /home/aine/script-search/com_youtube_www/T04-parameter-pattern-list.txt
+echo '&sort=downloads' >> /home/aine/script-search/com_vagrantup_app/T04-parameter-pattern-list.txt
+echo '&sort=rel' >> /home/aine/script-search/org_oeis/T04-parameter-pattern-list.txt
+echo '&source=osdd#auto|auto|@' >> /home/aine/script-search/com_google_translate/T04-parameter-pattern-list.txt
+echo '&text=@' >> /home/aine/script-search/com_yandex/T04-parameter-pattern-list.txt
+echo '&utf8=%E2%9C%93' >> /home/aine/script-search/com_vagrantup_app/T04-parameter-pattern-list.txt
+```
+
+
+オプション引数の登録
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat $HOME/script-search/$dir/T04-parameter-pattern-list.txt| tr -d '&' | tr '[=_:]' '-' | sed 's/^/--/' >>$HOME/script-search/$dir/T03-option-arguments-pattern-list.txt;done
+```
+
+- OUT
+
+```
+
+```
