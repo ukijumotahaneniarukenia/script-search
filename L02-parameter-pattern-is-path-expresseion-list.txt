@@ -1,0 +1,6 @@
+net_rakuten_api
+jp_codezine
+us_getsol_dev
+org_flathub
+com_stackexchange_unix
+org_typescriptlang_www

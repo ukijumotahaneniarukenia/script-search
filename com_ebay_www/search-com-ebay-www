@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+DEFAULT_WEB_BROWSER=brave-browser
+
+SEARCH_ENGINE_PAGE="https://www.ebay.com/sch/i.html"
+
+INCLUDE_LIST=$HOME/script-search/L*
+
+EXCLUDE_LIST=$HOME/script-search/L00*
+
+SITE_NAME=$(basename $(pwd))
+
+OPTION_LIST=$(cat $HOME/script-search/$SITE_NAME/T03*|sed 's/^/          /')
+
+USAGE_LIST=$(cat $HOME/script-search/$SITE_NAME/T06*|sed 's/^/          /')
+
+PLACE_HOLDER_LIST=$HOME/script-search/$SITE_NAME/T02*
+
+PARAMETER_PATTERN_LIST=$HOME/script-search/$SITE_NAME/T04*
+
+SEARCH_PATTERN_FILE=$(ls $INCLUDE_LIST|grep -v $EXCLUDE_LIST | while read list;do cat $list | grep -P "$SITE_NAME"; [[ 0 -eq $? ]] && echo $list ;done)
+
+SEARCH_PATTERN=
+
+case $SEARCH_PATTERN_FILE in
+    *)
+      if [[ $SEARCH_PATTERN_FILE =~ "query" ]]; then
+        SEARCH_PATTERN="?"
+      fi
+      if [[ $SEARCH_PATTERN_FILE =~ "path" ]]; then
+        SEARCH_PATTERN="/"
+      fi
+esac
+
+usage(){
+cat <<EOS
+Usage:
+  OPTION:
+$(cat <<INNER
+$OPTION_LIST
+INNER
+)
+
+      IN: echo NLP | $0
+
+     OUT:
+
+$(cat <<INNER
+$USAGE_LIST
+INNER
+)
+EOS
+
+exit 0
+
+}
+
+is_single_row(){
+  #単一行チェック
+  local CNT=0
+  while read ln;do
+    [ $(echo $ln | grep -c "0a") -eq 1 ] && CNT=$((CNT + 1))
+  done < <(echo "$@" | xxd -ps -c1)
+  [ $CNT -gt 1 ] || echo 0
+  [ $CNT -gt 1 ] && echo 1
+}
+
+main(){
+  n="$(cat -)";
+
+  [ -z "$n" ] && usage
+
+  OPTION_ARGS=( $n )
+
+  OPTION_ARGS_PATTERN="--"
+
+  OPTION_ARGS_REGEXP_PATTERN="^$OPTION_ARGS_PATTERN"
+
+  OPTION_CNT=${#OPTION_ARGS[@]}
+
+  if [[ $(is_single_row "$n") -ne 0 ]];then
+    #単一行でない場合
+    usage
+  fi
+
+  BUILD_QUERY_PARAMETER=
+  BUILD_SEARCH_PARAMETER=
+  BUILD_OPTION_PARAMETER=
+
+  SEARCH_CONDITION_JOINER=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_JOINER| sed 's/.*=//')
+  SEARCH_CONDITION_JOINER_REGEXP_PATTERN="^$SEARCH_CONDITION_JOINER"
+  SEARCH_CONDITION_KEY=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_KEY| sed 's/.*=//')
+  SEARCH_CONDITION_KEY_REGEXP_PATTERN="$SEARCH_CONDITION_KEY="
+
+  for (( i=0;i<$OPTION_CNT;i++ ));do
+
+    if [[ ${OPTION_ARGS[@]:$i:1} =~ $OPTION_ARGS_REGEXP_PATTERN ]];then
+
+      LIKE_PATTERN=$(echo ${OPTION_ARGS[@]:$i:1} |ruby -F- -anle 'puts $F.filter{|x|x.size!=0}.join(".")')
+      OPTION_PARAMETER=$(cat $PARAMETER_PATTERN_LIST | grep -P $LIKE_PATTERN)
+      BUILD_OPTION_PARAMETER=$BUILD_OPTION_PARAMETER$OPTION_PARAMETER
+
+    else
+      BUILD_SEARCH_PARAMETER=$BUILD_SEARCH_PARAMETER$SEARCH_CONDITION_JOINER${OPTION_ARGS[@]:$i:1}
+    fi
+  done
+
+  BUILD_QUERY_PARAMETER=$(echo $BUILD_SEARCH_PARAMETER | sed "s/$SEARCH_CONDITION_JOINER_REGEXP_PATTERN/$SEARCH_CONDITION_KEY_REGEXP_PATTERN/")$BUILD_OPTION_PARAMETER
+
+  echo
+
+  echo "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
+
+  echo
+
+  $DEFAULT_WEB_BROWSER "$SEARCH_ENGINE_PAGE$SEARCH_PATTERN$BUILD_QUERY_PARAMETER"
+}
+
+[ -p /dev/stdin ] && cat - | main
+[ -p /dev/stdin ] || echo -ne "$@" | main

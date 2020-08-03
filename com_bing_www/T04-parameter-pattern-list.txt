@@ -1,0 +1,11 @@
+&FORM=CHROMN
+&PC=U316
+&cvid=341004E5F118475AA0B7BBB94CD1EC6B
+&form=QBLH
+&pq=@
+&q=@
+&q=unko
+&qs=n
+&sc=7-4
+&sk=
+&sp=-1

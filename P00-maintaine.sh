@@ -19,8 +19,10 @@ if [ $? -ne 0 ];then
 
 fi
 
-#ディレクトリの作成
+#プレースホルダをアットマークに変更
+sed -i 's/%s/@/' M01-url-list.txt
 
+#ディレクトリの作成
 cat M01-url-list.txt | grep -Po '(?<=//).*?(?=/)' | sort | uniq | ruby -F"\." -anle 'puts "mkdir -p "+`pwd`.chomp+"/"+$F.reverse.join("_");' | bash
 
 #クエリ式パタンリストの作成

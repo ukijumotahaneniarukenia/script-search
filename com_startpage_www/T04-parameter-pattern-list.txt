@@ -1,0 +1,4 @@
+&cat=web
+&language=english
+&pl=opensearch
+&query=@

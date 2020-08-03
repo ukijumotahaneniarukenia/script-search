@@ -1,1 +1,3 @@
+&clid=1836588
+&from=os
 &text=@
