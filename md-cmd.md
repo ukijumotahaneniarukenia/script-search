@@ -112,3 +112,88 @@ com_youtube_www	https://www.youtube.com/results?search_query=@&page={startPage?}
 com_youtube_www	https://www.youtube.com/results?search_query=@&page={startPage?}&utm_source=opensearch
 com_yandex	https://yandex.com/search/??text=@
 ```
+
+
+配備
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T01-search-template @/T01-search-template
+```
+
+- OUT
+
+```
+cp T01-search-template /home/aine/script-search/com_github/T01-search-template
+cp T01-search-template /home/aine/script-search/org_pypi/T01-search-template
+cp T01-search-template /home/aine/script-search/com_android_developer/T01-search-template
+cp T01-search-template /home/aine/script-search/engineering_medium/T01-search-template
+cp T01-search-template /home/aine/script-search/com_youtube_www/T01-search-template
+cp T01-search-template /home/aine/script-search/com_pinterest_www/T01-search-template
+cp T01-search-template /home/aine/script-search/org_oeis/T01-search-template
+cp T01-search-template /home/aine/script-search/org_golang/T01-search-template
+cp T01-search-template /home/aine/script-search/jp_docker_docs/T01-search-template
+cp T01-search-template /home/aine/script-search/jp_co_google_www/T01-search-template
+cp T01-search-template /home/aine/script-search/to_dev/T01-search-template
+cp T01-search-template /home/aine/script-search/edu_mit_www/T01-search-template
+cp T01-search-template /home/aine/script-search/com_qiita/T01-search-template
+cp T01-search-template /home/aine/script-search/com_uptodown_jp/T01-search-template
+cp T01-search-template /home/aine/script-search/org_godoc/T01-search-template
+cp T01-search-template /home/aine/script-search/com_towardsdatascience/T01-search-template
+cp T01-search-template /home/aine/script-search/net_die_www/T01-search-template
+cp T01-search-template /home/aine/script-search/com_netflixtechblog/T01-search-template
+cp T01-search-template /home/aine/script-search/com_google_translate/T01-search-template
+cp T01-search-template /home/aine/script-search/com_github_gist/T01-search-template
+cp T01-search-template /home/aine/script-search/org_cocoapods/T01-search-template
+cp T01-search-template /home/aine/script-search/org_wikipedia_ja/T01-search-template
+cp T01-search-template /home/aine/script-search/com_yandex/T01-search-template
+cp T01-search-template /home/aine/script-search/com_rstudio_community/T01-search-template
+cp T01-search-template /home/aine/script-search/org_scala-lang_index/T01-search-template
+cp T01-search-template /home/aine/script-search/org_bitbucket/T01-search-template
+cp T01-search-template /home/aine/script-search/com_vagrantup_app/T01-search-template
+cp T01-search-template /home/aine/script-search/com_medium_blog/T01-search-template
+```
+
+
+リネーム
+
+- IN
+
+```
+$ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | xargs -I@ bash -c 'echo mv $HOME/script-search/@/T01-search-template $HOME/script-search/@/search-$(tr "_" "-"<<<@);'
+```
+
+
+- OUT
+
+```
+mv /home/aine/script-search/com_github/T01-search-template /home/aine/script-search/com_github/search-com-github
+mv /home/aine/script-search/org_pypi/T01-search-template /home/aine/script-search/org_pypi/search-org-pypi
+mv /home/aine/script-search/com_android_developer/T01-search-template /home/aine/script-search/com_android_developer/search-com-android-developer
+mv /home/aine/script-search/engineering_medium/T01-search-template /home/aine/script-search/engineering_medium/search-engineering-medium
+mv /home/aine/script-search/com_youtube_www/T01-search-template /home/aine/script-search/com_youtube_www/search-com-youtube-www
+mv /home/aine/script-search/com_pinterest_www/T01-search-template /home/aine/script-search/com_pinterest_www/search-com-pinterest-www
+mv /home/aine/script-search/org_oeis/T01-search-template /home/aine/script-search/org_oeis/search-org-oeis
+mv /home/aine/script-search/org_golang/T01-search-template /home/aine/script-search/org_golang/search-org-golang
+mv /home/aine/script-search/jp_docker_docs/T01-search-template /home/aine/script-search/jp_docker_docs/search-jp-docker-docs
+mv /home/aine/script-search/jp_co_google_www/T01-search-template /home/aine/script-search/jp_co_google_www/search-jp-co-google-www
+mv /home/aine/script-search/to_dev/T01-search-template /home/aine/script-search/to_dev/search-to-dev
+mv /home/aine/script-search/edu_mit_www/T01-search-template /home/aine/script-search/edu_mit_www/search-edu-mit-www
+mv /home/aine/script-search/com_qiita/T01-search-template /home/aine/script-search/com_qiita/search-com-qiita
+mv /home/aine/script-search/com_uptodown_jp/T01-search-template /home/aine/script-search/com_uptodown_jp/search-com-uptodown-jp
+mv /home/aine/script-search/org_godoc/T01-search-template /home/aine/script-search/org_godoc/search-org-godoc
+mv /home/aine/script-search/com_towardsdatascience/T01-search-template /home/aine/script-search/com_towardsdatascience/search-com-towardsdatascience
+mv /home/aine/script-search/net_die_www/T01-search-template /home/aine/script-search/net_die_www/search-net-die-www
+mv /home/aine/script-search/com_netflixtechblog/T01-search-template /home/aine/script-search/com_netflixtechblog/search-com-netflixtechblog
+mv /home/aine/script-search/com_google_translate/T01-search-template /home/aine/script-search/com_google_translate/search-com-google-translate
+mv /home/aine/script-search/com_github_gist/T01-search-template /home/aine/script-search/com_github_gist/search-com-github-gist
+mv /home/aine/script-search/org_cocoapods/T01-search-template /home/aine/script-search/org_cocoapods/search-org-cocoapods
+mv /home/aine/script-search/org_wikipedia_ja/T01-search-template /home/aine/script-search/org_wikipedia_ja/search-org-wikipedia-ja
+mv /home/aine/script-search/com_yandex/T01-search-template /home/aine/script-search/com_yandex/search-com-yandex
+mv /home/aine/script-search/com_rstudio_community/T01-search-template /home/aine/script-search/com_rstudio_community/search-com-rstudio-community
+mv /home/aine/script-search/org_scala-lang_index/T01-search-template /home/aine/script-search/org_scala-lang_index/search-org-scala-lang-index
+mv /home/aine/script-search/org_bitbucket/T01-search-template /home/aine/script-search/org_bitbucket/search-org-bitbucket
+mv /home/aine/script-search/com_vagrantup_app/T01-search-template /home/aine/script-search/com_vagrantup_app/search-com-vagrantup-app
+mv /home/aine/script-search/com_medium_blog/T01-search-template /home/aine/script-search/com_medium_blog/search-com-medium-blog
+```

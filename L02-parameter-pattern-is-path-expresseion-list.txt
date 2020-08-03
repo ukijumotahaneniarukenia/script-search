@@ -1,3 +1,1 @@
-$HOME/script-search/uptodown_ja_android/search-uptodown_ja_android
-$HOME/script-search/uptodown_ja_mac/search-uptodown_ja_mac
-$HOME/script-search/uptodown_ja_windows/search-uptodown_ja_windows
+com_uptodown_jp
