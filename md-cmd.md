@@ -112,3 +112,17 @@ OUT
 --sort-direction-asc
 --sort-direction-desc
 ```
+
+
+- 一括リネーム
+
+IN
+```
+$ grep SEARCH_ENGINE -r $HOME/script-search | grep http | ruby -F":" -anle '$a=$F[2].gsub(/\/\//,"").gsub(/\/.*/,"").split(".");p $F[0],$a.reverse.join("-")' | xargs -n2 | awk -v DIR=$(pwd) -v PREFIX=search '{print "git mv "$1" "DIR"/"$2"/search-"$2}'
+```
+
+OUT
+
+```
+
+```
