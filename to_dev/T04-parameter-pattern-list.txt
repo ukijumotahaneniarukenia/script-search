@@ -1,0 +1,9 @@
+&filters=class_name:Article
+&filters=class_name:Comment
+&filters=class_name:PodcastEpisode
+&filters=class_name:User
+&q=@
+&q=NLP
+&sort_by=published_at
+&sort_direction=asc
+&sort_direction=desc

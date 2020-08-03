@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="https://dev.to/search"
+SEARCH_ENGINE_PAGE="https://www.archlinux.org/packages/"
 
 INCLUDE_LIST=$HOME/script-search/L*
 

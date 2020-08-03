@@ -22,3 +22,17 @@ https://translate.google.com/?source=osdd#auto|auto|@
 https://www.die.net/search/?q=@
 https://www.youtube.com/results?search_query=@&page={startPage?}&utm_source=opensearch
 https://yandex.com/search/?text=@
+https://dev.to/search?q=@
+https://dev.to/search?q=NLP&filters=class_name:Article
+https://dev.to/search?q=NLP&filters=class_name:Article&sort_by=published_at&sort_direction=desc
+https://dev.to/search?q=NLP&filters=class_name:Article&sort_by=published_at&sort_direction=asc
+https://dev.to/search?q=NLP&filters=class_name:PodcastEpisode
+https://dev.to/search?q=NLP&filters=class_name:PodcastEpisode&sort_by=published_at&sort_direction=desc
+https://dev.to/search?q=NLP&filters=class_name:PodcastEpisode&sort_by=published_at&sort_direction=asc
+https://dev.to/search?q=NLP&filters=class_name:User
+https://dev.to/search?q=NLP&filters=class_name:User&sort_by=published_at&sort_direction=desc
+https://dev.to/search?q=NLP&filters=class_name:User&sort_by=published_at&sort_direction=asc
+https://dev.to/search?q=NLP&filters=class_name:Comment
+https://dev.to/search?q=NLP&filters=class_name:Comment&sort_by=published_at&sort_direction=desc
+https://dev.to/search?q=NLP&filters=class_name:Comment&sort_by=published_at&sort_direction=asc
+https://www.archlinux.org/packages/?q=@

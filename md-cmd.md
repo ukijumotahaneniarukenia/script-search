@@ -39,37 +39,37 @@ https://yandex.com/search/??text=@
 
   - ディレクトリ作成
 ```
-$ cat M01-url-list.txt | grep -Po '(?<=//).*?(?=/)' | sort | uniq | ruby -F"\." -anle 'puts "mkdir -p"+`pwd`.chomp+"/"+$F.reverse.join("_");'
+$ cat M01-url-list.txt | grep -Po '(?<=//).*?(?=/)' | sort | uniq | ruby -F"\." -anle 'puts "mkdir -p "+`pwd`.chomp+"/"+$F.reverse.join("_");'
 ```
 
 - OUT
 
 ```
-mkdir -p/home/aine/script-search/com_vagrantup_app
-mkdir -p/home/aine/script-search/org_bitbucket
-mkdir -p/home/aine/script-search/com_medium_blog
-mkdir -p/home/aine/script-search/org_cocoapods
-mkdir -p/home/aine/script-search/com_rstudio_community
-mkdir -p/home/aine/script-search/com_android_developer
-mkdir -p/home/aine/script-search/jp_docker_docs
-mkdir -p/home/aine/script-search/com_github_gist
-mkdir -p/home/aine/script-search/com_github
-mkdir -p/home/aine/script-search/org_godoc
-mkdir -p/home/aine/script-search/org_golang
-mkdir -p/home/aine/script-search/org_wikipedia_ja
-mkdir -p/home/aine/script-search/com_uptodown_jp
-mkdir -p/home/aine/script-search/engineering_medium
-mkdir -p/home/aine/script-search/com_netflixtechblog
-mkdir -p/home/aine/script-search/org_oeis
-mkdir -p/home/aine/script-search/org_pypi
-mkdir -p/home/aine/script-search/com_qiita
-mkdir -p/home/aine/script-search/com_towardsdatascience
-mkdir -p/home/aine/script-search/com_google_translate
-mkdir -p/home/aine/script-search/net_die_www
-mkdir -p/home/aine/script-search/edu_mit_www
-mkdir -p/home/aine/script-search/com_pinterest_www
-mkdir -p/home/aine/script-search/com_youtube_www
-mkdir -p/home/aine/script-search/com_yandex
+mkdir -p /home/aine/script-search/com_vagrantup_app
+mkdir -p /home/aine/script-search/org_bitbucket
+mkdir -p /home/aine/script-search/com_medium_blog
+mkdir -p /home/aine/script-search/org_cocoapods
+mkdir -p /home/aine/script-search/com_rstudio_community
+mkdir -p /home/aine/script-search/com_android_developer
+mkdir -p /home/aine/script-search/jp_docker_docs
+mkdir -p /home/aine/script-search/com_github_gist
+mkdir -p /home/aine/script-search/com_github
+mkdir -p /home/aine/script-search/org_godoc
+mkdir -p /home/aine/script-search/org_golang
+mkdir -p /home/aine/script-search/org_wikipedia_ja
+mkdir -p /home/aine/script-search/com_uptodown_jp
+mkdir -p /home/aine/script-search/engineering_medium
+mkdir -p /home/aine/script-search/com_netflixtechblog
+mkdir -p /home/aine/script-search/org_oeis
+mkdir -p /home/aine/script-search/org_pypi
+mkdir -p /home/aine/script-search/com_qiita
+mkdir -p /home/aine/script-search/com_towardsdatascience
+mkdir -p /home/aine/script-search/com_google_translate
+mkdir -p /home/aine/script-search/net_die_www
+mkdir -p /home/aine/script-search/edu_mit_www
+mkdir -p /home/aine/script-search/com_pinterest_www
+mkdir -p /home/aine/script-search/com_youtube_www
+mkdir -p /home/aine/script-search/com_yandex
 ```
 
 配備

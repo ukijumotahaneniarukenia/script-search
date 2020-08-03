@@ -1,12 +1,34 @@
-#!/usr/bin/evn bash
+#!/usr/bin/env bash
+
+usage(){
+cat <<EOS
+Usage:
+  PRE: cd $HOME/script-search
+  CMD: bash $0
+EOS
+
+exit 0
+
+}
 
 cd $HOME/script-search
 
 if [ $? -ne 0 ];then
 
-  exit 1
+  usage
 
 fi
+
+#ディレクトリの作成
+
+cat M01-url-list.txt | grep -Po '(?<=//).*?(?=/)' | sort | uniq | ruby -F"\." -anle 'puts "mkdir -p "+`pwd`.chomp+"/"+$F.reverse.join("_");' | bash
+
+#クエリ式パタンリストの作成
+cat M01-url-list.txt | grep -P '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby -F"\." -anle 'puts $F.reverse.join("_")' >L01-parameter-pattern-is-query-string-list.txt
+
+#パス式パタンリストの作成
+cat M01-url-list.txt | grep -vP '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby -F"\." -anle 'puts $F.reverse.join("_")' >L02-parameter-pattern-is-path-expresseion-list.txt
+
 
 #配備
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0* @/|bash
