@@ -72,48 +72,6 @@ mkdir -p/home/aine/script-search/com_youtube_www
 mkdir -p/home/aine/script-search/com_yandex
 ```
 
-- CMD
-
-```
-$ paste  <(cat M01-url-list.txt | grep -Po '(?<=//).*?(?=/)'|ruby -F'\.' -anle 'puts $F.reverse.join("_")') M01-url-list.txt
-```
-
-- OUT
-
-```
-org_golang	http://golang.org/search?q=@
-com_uptodown_jp	http://jp.uptodown.com/android/search?@
-com_uptodown_jp	http://jp.uptodown.com/mac/search?@
-com_uptodown_jp	http://jp.uptodown.com/windows/search?q=@&ref=opensearch+l%3A%28OR+Text+OR+Markdown+OR+Shell%29&s=stars&o=desc
-org_oeis	http://oeis.org/search?q=@&sort=rel
-edu_mit_www	http://www.mit.edu/search/?q=@
-com_pinterest_www	http://www.pinterest.com/search/pins/?q=@&rs=direct_navigation
-com_vagrantup_app	https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=libvirt&?q=@
-org_bitbucket	https://bitbucket.org/repo/all?name=@
-com_medium_blog	https://blog.medium.com/search?q=@&ref=opensearch
-org_cocoapods	https://cocoapods.org/?q=@
-com_rstudio_community	https://community.rstudio.com/search?q=@
-com_android_developer	https://developer.android.com/s/results?q=@
-jp_docker_docs	https://docs.docker.jp/search.html?q=@&check_keywords=yes&area=default
-com_github_gist	https://gist.github.com/search?q=@#gsc.tab=0&gsc.q=java&gsc.page=1
-com_github_gist	https://gist.github.com/search?q=@&ref=opensearch&s=stars&o=desc
-com_github_gist	https://gist.github.com/search?q=@&ref=opensearch&s=stars&o=desc&l=Dockerfile
-com_github	https://github.com/search?q=@&ref=opensearch
-org_godoc	https://godoc.org/?q=@
-org_wikipedia_ja	https://ja.wikipedia.org/w/index.php?search=@&fulltext=1
-engineering_medium	https://medium.engineering/search?q=@&ref=opensearch
-com_netflixtechblog	https://netflixtechblog.com/search?q=@&ref=opensearch
-org_pypi	https://pypi.org/search/?q=@&o=-zscore
-com_qiita	https://qiita.com/search?q=@
-com_towardsdatascience	https://towardsdatascience.com/search?q=@&ref=opensearch
-com_google_translate	https://translate.google.com/?source=osdd#auto|auto|@
-net_die_www	https://www.die.net/search/?q=@
-com_youtube_www	https://www.youtube.com/results?search_query=@&page={startPage?}&utm_source=opensearch
-com_youtube_www	https://www.youtube.com/results?search_query=@&page={startPage?}&utm_source=opensearch
-com_yandex	https://yandex.com/search/??text=@
-```
-
-
 配備
 
 - IN
