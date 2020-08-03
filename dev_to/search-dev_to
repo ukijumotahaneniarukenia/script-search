@@ -12,6 +12,8 @@ SITE_NAME=$(echo ${0##./} | ruby -F- -anle 'puts $F[1]')
 
 OPTION_LIST=$(cat $HOME/script-search/$SITE_NAME/O*|sed 's/^/          /')
 
+PLACE_HOLDER_LIST=$HOME/script-search/$SITE_NAME/K*
+
 SEARCH_PATTERN_FILE=$(ls $INCLUDE_LIST|grep -v $EXCLUDE_LIST | while read list;do cat $list | grep -P "$SITE_NAME"; [[ 0 -eq $? ]] && echo $list ;done)
 
 SEARCH_PATTERN=
@@ -76,9 +78,9 @@ main(){
   BUILD_SEARCH_PARAMETER=
   BUILD_OPTION_PARAMETER=
 
-  SEARCH_CONDITION_JOINER="%20"
+  SEARCH_CONDITION_JOINER=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_JOINER| sed 's/.*=//')
   SEARCH_CONDITION_JOINER_REGEXP_PATTERN="^$SEARCH_CONDITION_JOINER"
-  SEARCH_CONDITION_KEY="q"
+  SEARCH_CONDITION_KEY=$(cat $PLACE_HOLDER_LIST | grep SEARCH_CONDITION_KEY| sed 's/.*=//')
   SEARCH_CONDITION_KEY_REGEXP_PATTERN="$SEARCH_CONDITION_KEY="
 
   for (( i=0;i<$OPTION_CNT;i++ ));do
