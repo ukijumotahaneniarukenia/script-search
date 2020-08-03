@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="https://dev.to/search"
+SEARCH_ENGINE_PAGE="http://oeis.org/search"
 
 INCLUDE_LIST=$HOME/script-search/L*
 

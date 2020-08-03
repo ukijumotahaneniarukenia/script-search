@@ -291,3 +291,18 @@ echo 'https://www.die.net/search/' > /home/aine/script-search/net_die_www/T05-se
 echo 'https://www.youtube.com/results' > /home/aine/script-search/com_youtube_www/T05-search-engine-pattern-list.txt
 echo 'https://yandex.com/search/' > /home/aine/script-search/com_yandex/T05-search-engine-pattern-list.txt
 ```
+
+
+テンプレート検索エンジンの置換
+
+- IN
+
+```
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | while read dir;do cat $dir/T05* | xargs -I@ sed -i 's+TOBE_REPLACE_SEARCH_ENGINE_PAGE+@+' $dir/search-*;done
+```
+
+- OUT
+
+```
+
+```

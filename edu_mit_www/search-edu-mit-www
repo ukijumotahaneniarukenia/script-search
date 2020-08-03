@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="https://dev.to/search"
+SEARCH_ENGINE_PAGE="http://www.mit.edu/search/"
 
 INCLUDE_LIST=$HOME/script-search/L*
 
