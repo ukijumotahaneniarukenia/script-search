@@ -1,1 +1,1 @@
-http://serverfault.com/search
+https://serverfault.com/search

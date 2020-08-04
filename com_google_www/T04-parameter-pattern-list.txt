@@ -1,3 +1,4 @@
+&as_sitesearch=unicode.org
 &ei=5P8nX4H9K5T8wQPZ_Y6oCA
 &gl=us
 &gs_lcp=CgZwc3ktYWIQAzIECCMQJzIECAAQQzIICC4QxwEQrwEyBwgAEBQQhwIyAgguMgIIADICCC4yAggAMgIIADIECAAQCjoECC4QQzoICC4QxwEQowJQ5hBY0RRgrhdoAHAAeACAAXGIAacDkgEDMS4zmAEAoAEBqgEHZ3dzLXdpeg
@@ -6,6 +7,7 @@
 &pws=0
 &q=@
 &sclient=psy-ab
+&sitesearch=https%3A%2F%2Fwww.freedesktop.org%2Fwiki%2F
 &source=hp
 &sxsrf=ALeKk00-aTwciPqX7PU78-a15XFPMpCELA%3A1596456932756
 &uact=5

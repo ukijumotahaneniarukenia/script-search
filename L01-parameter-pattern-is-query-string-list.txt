@@ -60,7 +60,6 @@ com_google_www
 com_kaggle_www
 edu_mit_www
 com_mkyong_www
-com_pinterest_www
 com_quora_www
 com_qwant_www
 com_reddit_www

@@ -2,7 +2,7 @@
 
 DEFAULT_WEB_BROWSER=brave-browser
 
-SEARCH_ENGINE_PAGE="TOBE_REPLACE_SEARCH_ENGINE_PAGE"
+SEARCH_ENGINE_PAGE="https://egison.readthedocs.io/en/latest/search.html"
 
 ZERO_PAD_LEN="%03d"
 
@@ -47,11 +47,11 @@ $OPTION_LIST
 INNER
 )
 
-     CMD: $0 search NLP
+     CMD: ${0#./} search NLP
 
-     CMD: $0 add https://duckduckgo.com/?q=Sudachi https://duckduckgo.com/?q=NLP
+     CMD: ${0#./} add https://duckduckgo.com/?q=Sudachi https://duckduckgo.com/?q=NLP
 
-     CMD: $0 remove {1..3} 9 {7..8}
+     CMD: ${0#./} remove {1..3} 9 {7..8}
 
 $(cat <<INNER
 $USAGE_LIST

@@ -1,1 +1,1 @@
-http://meta.stackexchange.com/search
+https://meta.stackexchange.com/search

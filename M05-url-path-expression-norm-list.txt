@@ -1,0 +1,5 @@
+https://codezine.jp/search/@
+https://flathub.org/apps/search/@
+https://api.rakuten.net/search/@
+https://unix.stackexchange.com/questions/tagged/@
+https://dev.getsol.us/search/query/@/#R

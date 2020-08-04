@@ -31,8 +31,22 @@ cat M01-url-list.txt | grep -P '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby 
 #パス式パタンリストの作成
 cat M01-url-list.txt | grep -vP '\?' | grep -Po '(?<=//).*?(?=/)'|sort|uniq|ruby -F"\." -anle 'puts $F.reverse.join("_")' >L02-parameter-pattern-is-path-expresseion-list.txt
 
+#クエリ文字列URLの抽出の正規化
+cat M01-url-list.txt | grep -P '\?' >M02-url-query-string-list.txt
+
+#クエリパス式の抽出
+#TODO
+cat M01-url-list.txt | grep -vP '\?' >M03-url-path-expression-list.txt
+
+#クエリ文字列URLの正規化
+cat M02-url-query-string-list.txt | grep -P '\?' | ruby -F"\?" -anle '$F[1].split(/\&/).map{|x|p $_.gsub(/.*\/\//,"").gsub(/\/.*/,"").split(/\./).reverse.join("_"),$F[0],x}'|xargs -n3>M04-url-query-string-norm-list.txt
+
+#クエリパス式の正規化
+#TODO
+cat M03-url-path-expression-list.txt | grep -vP '\?' >M05-url-path-expression-norm-list.txt
+
 #未使用ディレクトリの削除(正規化URLに登録されていないかつディレクトリ名に一つもアンダースコアが含まれていない場合)
-find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | while read dir;do grep -q -P $dir M02-url-norm-list.txt; [[ 1 -eq $? ]] && echo $dir|grep -v '_'; done | xargs rm -rf
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | while read dir;do grep -q -P $dir M04-url-query-string-norm-list.txt; [[ 1 -eq $? ]] && echo $dir|grep -v '_'; done | xargs rm -rf
 
 #配備 Usageファイルは除く
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | xargs -I@ echo cp T0[1-5]* @/|bash
@@ -54,14 +68,8 @@ done < <(find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git')
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*/;;' | xargs -I@ bash -c 'echo mv $HOME/script-search/@/T01-search-template $HOME/script-search/@/search-$(tr "_" "-"<<<@);'|bash
 
 
-#クエリの正規化
-cat M01-url-list.txt | ruby -F"\?" -anle '$F[1].split(/\&/).map{|x|p $_.gsub(/.*\/\//,"").gsub(/\/.*/,"").split(/\./).reverse.join("_"),$F[0],x}'|xargs -n3>M02-url-norm-list.txt
-
-#パス式の正規化
-#TODO
-
 #検索エンジンURLの登録
-find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | awk -v tgt=T05-search-engine-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27"$2"\x27 > "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M04-url-query-string-norm-list.txt | awk -v tgt=T05-search-engine-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27"$2"\x27 > "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
 
 
 #テンプレート検索エンジンの置換
@@ -69,12 +77,11 @@ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | while read dir
 
 
 #クエリパラメータの登録
-
-find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | awk -v tgt=T04-parameter-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27&"$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M04-url-query-string-norm-list.txt | awk -v tgt=T04-parameter-pattern-list.txt -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{print "echo \x27&"$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
 
 #オプション引数の登録
 
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat $HOME/script-search/$dir/T04-parameter-pattern-list.txt| tr -d '&' | tr '[=_:]' '-' | sed 's/^/--/' >>$HOME/script-search/$dir/T03-option-arguments-pattern-list.txt;done
 
 #検索キー名の登録
-find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M02-url-norm-list.txt | grep =@ | awk -v tgt=T02-placeholder-pattern-list.txt -v key=SEARCH_CONDITION_KEY -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{gsub("=.*","",$3);print "echo \x27"key"="$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
+find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M04-url-query-string-norm-list.txt | grep =@ | awk -v tgt=T02-placeholder-pattern-list.txt -v key=SEARCH_CONDITION_KEY -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{gsub("=.*","",$3);print "echo \x27"key"="$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
