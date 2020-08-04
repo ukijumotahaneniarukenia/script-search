@@ -18,6 +18,7 @@ com_github_gist
 com_github
 org_godoc
 org_golang
+net_goodkeyword
 org_wikipedia_ja
 org_wiktionary_ja
 jp_co_yomiuri_komachi

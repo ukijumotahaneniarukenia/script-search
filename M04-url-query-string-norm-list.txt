@@ -1,3 +1,7 @@
+net_goodkeyword https://goodkeyword.net/search.php type=
+net_goodkeyword https://goodkeyword.net/search.php formquery=@
+net_goodkeyword https://goodkeyword.net/search.php x=0
+net_goodkeyword https://goodkeyword.net/search.php y=0
 org_golang http://golang.org/search q=@
 org_oeis http://oeis.org/search q=@
 org_oeis http://oeis.org/search sort=rel

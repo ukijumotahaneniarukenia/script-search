@@ -85,3 +85,7 @@ find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'
 
 #検索キー名の登録
 find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git' | sed 's;.*\/;;'| while read dir;do cat M04-url-query-string-norm-list.txt | grep =@ | awk -v tgt=T02-placeholder-pattern-list.txt -v key=SEARCH_CONDITION_KEY -v dir=$dir -v home=$HOME -v root=script-search 'dir==$1{gsub("=.*","",$3);print "echo \x27"key"="$3"\x27 >> "home"/"root"/"dir"/"tgt}'; done|sort |uniq|bash
+
+
+#自作コマンドに登録
+find $HOME/script-search -type f | grep -vP '\.git|P00-' | xargs file | grep executable| cut -d':' -f1 | sort -r | while read f;do echo ln -fsr $f $HOME/.local/script-search/bin/${f##*/};done|bash
