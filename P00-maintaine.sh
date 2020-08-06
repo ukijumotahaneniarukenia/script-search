@@ -59,7 +59,7 @@ while read dir;do
     :
   else
     #なければ作成する
-    cp T06* $dir/T06*
+    cp T06-usage-pattern-list.txt $dir/T06-usage-pattern-list.txt
   fi
 
 done < <(find $HOME/script-search -mindepth 1 -type d | grep -vP '\.git')
