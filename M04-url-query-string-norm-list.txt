@@ -1,7 +1,16 @@
+net_alternativeto https://alternativeto.net/browse/search q=@
 net_goodkeyword https://goodkeyword.net/search.php type=
 net_goodkeyword https://goodkeyword.net/search.php formquery=@
 net_goodkeyword https://goodkeyword.net/search.php x=0
 net_goodkeyword https://goodkeyword.net/search.php y=0
+net_goodkeyword https://goodkeyword.net/search.php formquery=@
+net_goodkeyword https://goodkeyword.net/search.php type=googlesuggest
+net_goodkeyword https://goodkeyword.net/search.php formquery=@
+net_goodkeyword https://goodkeyword.net/search.php type=multisuggest
+net_goodkeyword https://goodkeyword.net/search.php formquery=@
+net_goodkeyword https://goodkeyword.net/search.php type=rakutensuggest
+net_goodkeyword https://goodkeyword.net/search.php formquery=@
+net_goodkeyword https://goodkeyword.net/search.php type=appsuggest
 org_golang http://golang.org/search q=@
 org_oeis http://oeis.org/search q=@
 org_oeis http://oeis.org/search sort=rel

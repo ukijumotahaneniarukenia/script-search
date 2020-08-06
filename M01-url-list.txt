@@ -1,4 +1,9 @@
+https://alternativeto.net/browse/search?q=@
 https://goodkeyword.net/search.php?type=&formquery=@&x=0&y=0
+https://goodkeyword.net/search.php?formquery=@&type=googlesuggest
+https://goodkeyword.net/search.php?formquery=@&type=multisuggest
+https://goodkeyword.net/search.php?formquery=@&type=rakutensuggest
+https://goodkeyword.net/search.php?formquery=@&type=appsuggest
 http://golang.org/search?q=@
 http://oeis.org/search?q=@&sort=rel
 http://www.mit.edu/search/?q=@
