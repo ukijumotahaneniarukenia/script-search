@@ -5,6 +5,7 @@ https://goodkeyword.net/search.php?formquery=@&type=multisuggest
 https://goodkeyword.net/search.php?formquery=@&type=rakutensuggest
 https://goodkeyword.net/search.php?formquery=@&type=appsuggest
 http://golang.org/search?q=@
+https://www.unixmen.com/?s=@
 http://oeis.org/search?q=@&sort=rel
 http://www.mit.edu/search/?q=@
 https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=libvirt&?q=@

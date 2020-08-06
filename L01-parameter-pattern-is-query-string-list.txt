@@ -67,6 +67,7 @@ com_qwant_www
 com_reddit_www
 net_slideshare_www
 com_startpage_www
+com_unixmen_www
 org_virtualbox_www
 com_youtube_www
 com_yandex
