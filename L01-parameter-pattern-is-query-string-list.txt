@@ -58,6 +58,7 @@ com_bing_www
 net_die_www
 com_ebay_www
 com_effectiveperlprogramming_www
+co_elastic_www
 jp_co_google_www
 com_google_www
 com_kaggle_www

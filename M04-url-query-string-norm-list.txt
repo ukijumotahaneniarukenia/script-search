@@ -19,6 +19,8 @@ jp_canon-its_eset-info https://eset-info.canon-its.jp/files/user/common/search/m
 jp_canon-its_eset-info https://eset-info.canon-its.jp/files/user/common/search/malware/index.html group=26
 jp_canon-its_eset-info https://eset-info.canon-its.jp/files/user/common/search/malware/index.html site=QUM0477J
 jp_canon-its_eset-info https://eset-info.canon-its.jp/files/user/common/search/malware/index.html charset=utf-8
+co_elastic_www https://www.elastic.co/jp/search q=@
+co_elastic_www https://www.elastic.co/jp/search size=n_20_n
 org_oeis http://oeis.org/search q=@
 org_oeis http://oeis.org/search sort=rel
 edu_mit_www http://www.mit.edu/search/ q=@

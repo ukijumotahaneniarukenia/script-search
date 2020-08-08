@@ -7,6 +7,7 @@ https://goodkeyword.net/search.php?formquery=@&type=appsuggest
 http://golang.org/search?q=@
 https://www.unixmen.com/?s=@
 https://eset-info.canon-its.jp/files/user/common/search/malware/index.html?query=@&start=0&count=10&group=26&site=QUM0477J&charset=utf-8
+https://www.elastic.co/jp/search?q=@&size=n_20_n
 http://oeis.org/search?q=@&sort=rel
 http://www.mit.edu/search/?q=@
 https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=libvirt&?q=@
