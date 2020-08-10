@@ -10,6 +10,7 @@ com_rstudio_community
 to_dev
 com_heroku_devcenter
 com_android_developer
+com_apple_developer
 com_google_developers
 jp_docker_docs
 com_duckduckgo

@@ -1,3 +1,4 @@
+com_apple_developer https://developer.apple.com/search/ q=@
 net_alternativeto https://alternativeto.net/browse/search q=@
 net_goodkeyword https://goodkeyword.net/search.php type=
 net_goodkeyword https://goodkeyword.net/search.php formquery=@
@@ -23,6 +24,9 @@ co_elastic_www https://www.elastic.co/jp/search q=@
 co_elastic_www https://www.elastic.co/jp/search size=n_20_n
 org_oeis http://oeis.org/search q=@
 org_oeis http://oeis.org/search sort=rel
+com_duckduckgo https://duckduckgo.com/ t=ht
+com_duckduckgo https://duckduckgo.com/ ia=web
+com_duckduckgo https://duckduckgo.com/ q=site%3Ahttps%3A%2F%2Fwww.seleniumqref.com%2F+@
 edu_mit_www http://www.mit.edu/search/ q=@
 com_vagrantup_app https://app.vagrantup.com/boxes/search utf8=%E2%9C%93
 com_vagrantup_app https://app.vagrantup.com/boxes/search sort=downloads
