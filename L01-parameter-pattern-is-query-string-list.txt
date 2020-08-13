@@ -28,6 +28,7 @@ jp_co_yomiuri_komachi
 com_medium
 engineering_medium
 com_stackexchange_meta
+com_mvnrepository
 com_netflixtechblog
 org_oeis
 com_ubuntu_packages

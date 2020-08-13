@@ -1,4 +1,5 @@
 com_apple_developer https://developer.apple.com/search/ q=@
+com_mvnrepository https://mvnrepository.com/search q=@
 net_alternativeto https://alternativeto.net/browse/search q=@
 net_goodkeyword https://goodkeyword.net/search.php type=
 net_goodkeyword https://goodkeyword.net/search.php formquery=@
