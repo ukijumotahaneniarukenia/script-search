@@ -1,5 +1,6 @@
 &ia=web
 &q=@
 &q=@+site%3Acyberciti.biz
+&q=site%3Ahttps%3A%2F%2Fvim-jp.org%2Fvimdoc-ja%2F%20@
 &q=site%3Ahttps%3A%2F%2Fwww.seleniumqref.com%2F+@
 &t=ht

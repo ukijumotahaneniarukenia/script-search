@@ -1,5 +1,8 @@
 com_apple_developer https://developer.apple.com/search/ q=@
 com_mvnrepository https://mvnrepository.com/search q=@
+com_duckduckgo https://duckduckgo.com/ t=ht
+com_duckduckgo https://duckduckgo.com/ ia=web
+com_duckduckgo https://duckduckgo.com/ q=site%3Ahttps%3A%2F%2Fvim-jp.org%2Fvimdoc-ja%2F%20@
 net_alternativeto https://alternativeto.net/browse/search q=@
 net_goodkeyword https://goodkeyword.net/search.php type=
 net_goodkeyword https://goodkeyword.net/search.php formquery=@
